@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.mmi.LicenceManager;
 import com.mmi.MapView;
 import com.mmi.MapmyIndiaMapView;
 import com.mmi.util.GeoPoint;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        LicenceManager.getInstance().setRestAPIKey("nnrh9qrut667yujhhc6j5t8rx2mhl3h8");
+        LicenceManager.getInstance().setMapSDKKey("2kommrhfwmm7shzm5559xod8qyond5uq");
         MapmyIndiaMapView mapMyIndiaMapView = (MapmyIndiaMapView)  findViewById(R.id.map);
         MapView mMapView = mapMyIndiaMapView.getMapView();
         GeoPoint geoPoint= new GeoPoint(48.8583, 2,2944);
