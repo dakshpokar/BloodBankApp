@@ -16,6 +16,10 @@ import android.view.MenuItem;
 import com.mmi.LicenceManager;
 import com.mmi.MapView;
 import com.mmi.MapmyIndiaMapView;
+import com.mmi.layers.Marker;
+
+import com.mmi.layers.UserLocationOverlay;
+import com.mmi.layers.location.GpsLocationProvider;
 import com.mmi.util.GeoPoint;
 
 public class MainActivity extends AppCompatActivity
@@ -31,6 +35,12 @@ public class MainActivity extends AppCompatActivity
         MapView mMapView = mapMyIndiaMapView.getMapView();
         GeoPoint geoPoint= new GeoPoint(48.8583, 2,2944);
         mMapView.setCenter(geoPoint);
+        Marker marker= new Marker(mMapView);
+        marker.setPosition(geoPoint);
+        marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+        mMapView.getOverlays().add(marker);
+        mMapView.invalidate();
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
